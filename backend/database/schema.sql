@@ -1,12 +1,15 @@
+-- Création de la table pictures
+create table picture (
+  id INT primary key auto_increment not null,
+  path varchar(255) not null
+);
+
 -- Création de la table user
 create table user (
   id INT primary key auto_increment not null,
   email varchar(255) not null,
   password varchar(255) not null,
   username varchar(100) not null
-  id_picture int
-  constraint fk_animal_picture
-  foreign key (id_picture) references picture(id)
 );
 
 -- Création de la table animals
@@ -17,13 +20,9 @@ create table animal (
   race varchar(255) not null,
   age INT not null,
   type varchar(100) not null,
-  place VARCHAR(100) not null
-);
-
--- Création de la table pictures
-create table picture (
-  id INT primary key auto_increment not null,
-  path varchar(255) not null
+  place VARCHAR(100) not null,
+  id_picture int,
+  foreign key (id_picture) references picture(id)
 );
 
 -- Création des users
@@ -33,6 +32,27 @@ INSERT INTO user (email, username, password) VALUES
 ('yoko@gmail.com', "Yokoko", "yoko"),
 ('plume@gmail.com', "Plumeau", "plume"),
 ('buck@gmail.com', "Bucky", "buck");
+
+-- Création des pictures
+INSERT INTO picture (path) VALUES
+('/yoko.jpeg'),
+('/gaia.jpg'),
+('/nenette.jpg'),
+('/Boulette.jpeg'),
+('/diabolo.jpg'),
+('/Buck.jpg'),
+('/Pumba.jpg'),
+('/Lilou.jpg'),
+('/Bella.jpg'),
+('/Cleo.jpg'),
+('/Oscar.jpg'),
+('/Nala.jpg'),
+('/Luna.jpg'),
+('/Coco.jpg'),
+('/Daisy.jpg'),
+('/Nika.jpg'),
+('/Shadow.jpg');
+
 
 -- Création des animaux
 INSERT INTO animal (category, name, race, age, type, place, id_picture) VALUES
@@ -53,23 +73,3 @@ INSERT INTO animal (category, name, race, age, type, place, id_picture) VALUES
 ('Chien', 'Daisy', 'Caniche', 2, 'Femelle', 'Clermont-Ferrand', 15),
 ('Chien', 'Nika', 'Beagle', 6, 'Femelle', 'Toulon', 16),
 ('Chien', 'Shadow', 'Akita Inu', 8, 'Mâle', 'Paris', 17);
-
--- Création des pictures
-INSERT INTO picture VALUES
-('/yoko.jpeg'),
-('/gaia.jpg'),
-('/nenette.jpg'),
-('/Boulette.jpeg'),
-('/diabolo.jpg'),
-('/Buck.jpg'),
-('/Pumba.jpg'),
-('/Lilou.jpg'),
-('/Bella.jpg'),
-('/Cleo.jpg'),
-('/Oscar.jpg'),
-('/Nala.jpg'),
-('/Luna.jpg'),
-('/Coco.jpg'),
-('/Daisy.jpg'),
-('/Nika.jpg'),
-('/Shadow.jpg');
