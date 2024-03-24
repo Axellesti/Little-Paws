@@ -4,10 +4,12 @@ create table user (
   email varchar(255) not null,
   password varchar(255) not null,
   username varchar(100) not null
+  id_picture int
+  constraint fk_animal_picture
+  foreign key (id_picture) references picture(id)
 );
 
 -- Création de la table animals
-
 create table animal (
   id INT primary key auto_increment not null, 
   category varchar(100) not null,
@@ -18,9 +20,11 @@ create table animal (
   place VARCHAR(100) not null
 );
 
--- Création de la table articles
-
-
+-- Création de la table pictures
+create table picture (
+  id INT primary key auto_increment not null,
+  path varchar(255) not null
+);
 
 -- Création des users
 INSERT INTO user (email, username, password) VALUES 
@@ -30,25 +34,42 @@ INSERT INTO user (email, username, password) VALUES
 ('plume@gmail.com', "Plumeau", "plume"),
 ('buck@gmail.com', "Bucky", "buck");
 
-
 -- Création des animaux
-INSERT INTO animal (category, name, race, age, type, place) VALUES
-('Chien', 'Yoko', 'Shiba Inu', 4, 'Femelle', 'Lille'),
-('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux'),
-('Chat', 'Nenette', 'Chat de gouttiere', 8, 'Femelle', 'Strasbourg'),
-('Chat', 'Boulette', 'Chat de gouttier', 7, 'Femelle', 'Lyon'),
-('Chat', 'Diabolo', 'Siamois', 6, 'Mâle', 'Bordeaux'),
-('Chien', 'Buck', 'Boxer', 10, 'Mâle', 'Marseille'),
-('Chien', 'Pumba', 'American Staffordshire Terrier', 6, 'Mâle', 'Montpellier'),
-('Chien', 'Lilou', 'Golden Retriever', 6, 'Femelle', 'Toulon'),
-('Chien', 'Bella', 'Labrador Retriever', 3, 'Fmelle', 'Clermont-Ferrand'),
-('Chat', 'Cleo', 'Sacré de Birmanie', 2, 'Femelle', 'Paris'),
-('Chat', 'Oscar', 'American Shorthair', 4, 'Mâle', 'Lille'),
-('Chat', 'Nala', 'Chartreux', 5, 'Femelle', 'Paris'),
-('Chien', 'Luna', 'Berger Allemand', 5, 'Femelle', 'Bordeaux'),
-('Chien', 'Coco', 'Bulldog Français', 4, 'Mâle', 'Montpellier'),
-('Chien', 'Daisy', 'Caniche', 2, 'Femelle', 'Clermont-Ferrand'),
-('Chien', 'Nika', 'Beagle', 6, 'Femelle', 'Toulon'),
-('Chien', 'Shadow', 'Akita Inu', 8, 'Mâle', 'Paris');
+INSERT INTO animal (category, name, race, age, type, place, id_picture) VALUES
+('Chien', 'Yoko', 'Shiba Inu', 4, 'Femelle', 'Lille', 1),
+('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux', 2),
+('Chat', 'Nenette', 'Chat de gouttiere', 8, 'Femelle', 'Strasbourg', 3),
+('Chat', 'Boulette', 'Chat de gouttier', 7, 'Femelle', 'Lyon', 4),
+('Chat', 'Diabolo', 'Siamois', 6, 'Mâle', 'Bordeaux', 5),
+('Chien', 'Buck', 'Boxer', 10, 'Mâle', 'Marseille', 6),
+('Chien', 'Pumba', 'American Staffordshire Terrier', 6, 'Mâle', 'Montpellier', 7),
+('Chien', 'Lilou', 'Golden Retriever', 6, 'Femelle', 'Toulon', 8),
+('Chien', 'Bella', 'Labrador Retriever', 3, 'Fmelle', 'Clermont-Ferrand', 9),
+('Chat', 'Cleo', 'Sacré de Birmanie', 2, 'Femelle', 'Paris', 10),
+('Chat', 'Oscar', 'American Shorthair', 4, 'Mâle', 'Lille', 11),
+('Chat', 'Nala', 'Chartreux', 5, 'Femelle', 'Paris', 12),
+('Chien', 'Luna', 'Berger Allemand', 5, 'Femelle', 'Bordeaux', 13),
+('Chien', 'Coco', 'Bulldog Français', 4, 'Mâle', 'Montpellier', 14),
+('Chien', 'Daisy', 'Caniche', 2, 'Femelle', 'Clermont-Ferrand', 15),
+('Chien', 'Nika', 'Beagle', 6, 'Femelle', 'Toulon', 16),
+('Chien', 'Shadow', 'Akita Inu', 8, 'Mâle', 'Paris', 17);
 
-
+-- Création des pictures
+INSERT INTO picture VALUES
+('/yoko.jpeg'),
+('/gaia.jpg'),
+('/nenette.jpg'),
+('/Boulette.jpeg'),
+('/diabolo.jpg'),
+('/Buck.jpg'),
+('/Pumba.jpg'),
+('/Lilou.jpg'),
+('/Bella.jpg'),
+('/Cleo.jpg'),
+('/Oscar.jpg'),
+('/Nala.jpg'),
+('/Luna.jpg'),
+('/Coco.jpg'),
+('/Daisy.jpg'),
+('/Nika.jpg'),
+('/Shadow.jpg');
