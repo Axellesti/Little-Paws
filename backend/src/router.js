@@ -9,6 +9,7 @@ const router = express.Router();
 // Import itemControllers module for handling item-related operations
 const itemControllers = require("./controllers/itemControllers");
 const animalControllers = require("./controllers/animalControllers");
+const userControllers = require("./controllers/userControllers");
 
 // Route to get a list of items
 
@@ -17,18 +18,19 @@ router.get("/items/:id", itemControllers.read);
 // Route to add a new item
 router.post("/items", itemControllers.add);
 
-// Roads to get animals
+// Roads to animals
 router.get("/animals", animalControllers.browse);
 router.get("/animals/:id/", animalControllers.read);
-
-// Roads to add animals
 router.post("/animals", animalControllers.add);
-
-// Roads to update animals
 router.put("/animals/:id/", animalControllers.update);
-
-// Roads to delete animals
 router.delete("/animals/:id/", animalControllers.destroy);
+
+// Roads to users
+router.get("/users", userControllers.browse);
+router.get("/users/:id/", userControllers.read);
+router.post("/users", userControllers.add);
+router.put("/users/:id/", userControllers.update);
+router.delete("/users/:id/", userControllers.destroy);
 
 /* ************************************************************************* */
 
