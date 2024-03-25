@@ -1,0 +1,70 @@
+/* Banner */
+.home_banner_container {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0.5em 0em 0.5em;
+}
+
+.banner {
+  width: 348px;
+  height: 134px;
+  left: 38px;
+  top: 155px;
+}
+
+/* Filter Category */
+
+.text_filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2em 1em 1.5em 1em;
+}
+
+.text_filter > h2 {
+  font-weight: 600;
+  color: var(--grey-color);
+}
+
+.text_filter > h4 {
+  font-weight: 300;
+  color: var(--purple-color);
+}
+
+.pet_container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1em;
+}
+
+.pet_container > .pet_categories {
+  display: flex;
+  background: hsl(0, 0%, 100%);
+  padding: 0.5em;
+  box-shadow: 0px 3.76453px 18.8226px rgba(0, 0, 0, 0.05);
+  border-radius: 30.1162px;
+}
+
+.pet_container > .pet_categories > button {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* Pet Category */
+.text_pets_for_walk {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2.5em 1em 1.5em 1em;
+}
+
+.text_pets_for_walk > h2 {
+  font-weight: 600;
+  color: var(--grey-color);
+}
+
+.text_pets_for_walk > h4 {
+  font-weight: 300;
+  color: var(--purple-color);
+}

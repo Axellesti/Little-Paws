@@ -9,7 +9,7 @@ create table user (
   id INT primary key auto_increment not null,
   email varchar(255) not null,
   password varchar(255) not null,
-  username varchar(100) not null
+  username varchar(100) not null,
 );
 
 -- Création de la table animals
@@ -21,8 +21,9 @@ create table animal (
   age INT not null,
   type varchar(100) not null,
   place VARCHAR(100) not null,
-  id_picture int,
-  foreign key (id_picture) references picture(id)
+  id_picture int not null,
+  constraint fk_animal_picture
+  foreign key (id_picture) references picture(id),
 );
 
 -- Création des users
@@ -56,12 +57,12 @@ INSERT INTO picture (path) VALUES
 
 -- Création des animaux
 INSERT INTO animal (category, name, race, age, type, place, id_picture) VALUES
-('Chien', 'Yoko', 'Shiba Inu', 4, 'Femelle', 'Lille', 1),
-('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux', 2),
-('Chat', 'Nenette', 'Chat de gouttiere', 8, 'Femelle', 'Strasbourg', 3),
-('Chat', 'Boulette', 'Chat de gouttier', 7, 'Femelle', 'Lyon', 4),
+('Chien', 'Yoko', 'Shiba Inu', 4, 'Femelle', 'Lille', 1, 2),
+('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux', 2, 1),
+('Chat', 'Nenette', 'Chat de gouttiere', 8, 'Femelle', 'Strasbourg', 3, 5),
+('Chat', 'Boulette', 'Chat de gouttier', 7, 'Femelle', 'Lyon', 4, 3),
 ('Chat', 'Diabolo', 'Siamois', 6, 'Mâle', 'Bordeaux', 5),
-('Chien', 'Buck', 'Boxer', 10, 'Mâle', 'Marseille', 6),
+('Chien', 'Buck', 'Boxer', 10, 'Mâle', 'Marseille', 6, 4),
 ('Chien', 'Pumba', 'American Staffordshire Terrier', 6, 'Mâle', 'Montpellier', 7),
 ('Chien', 'Lilou', 'Golden Retriever', 6, 'Femelle', 'Toulon', 8),
 ('Chien', 'Bella', 'Labrador Retriever', 3, 'Fmelle', 'Clermont-Ferrand', 9),
