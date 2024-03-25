@@ -11,6 +11,8 @@ const itemControllers = require("./controllers/itemControllers");
 const animalControllers = require("./controllers/animalControllers");
 const userControllers = require("./controllers/userControllers");
 
+const authMiddlewares = require("./services/auth");
+
 // Route to get a list of items
 
 // Route to get a specific item by ID
@@ -28,7 +30,7 @@ router.delete("/animals/:id/", animalControllers.destroy);
 // Roads to users
 router.get("/users", userControllers.browse);
 router.get("/users/:id/", userControllers.read);
-router.post("/users", userControllers.add);
+router.post("/users", authMiddlewares.hashPassword, userControllers.add);
 router.put("/users/:id/", userControllers.update);
 router.delete("/users/:id/", userControllers.destroy);
 
