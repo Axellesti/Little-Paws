@@ -1,0 +1,94 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  background-color: var(--purple-color);
+  transition: all 0.7s;
+}
+
+.header > nav > img {
+  display: flex;
+  align-items: center;
+  max-width: 100px;
+}
+
+.navbar div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: fixed;
+  right: -100vw;
+  bottom: 0;
+  height: 100%;
+  padding: 3.2rem 1.5rem 2rem 1.5rem;
+  visibility: hidden;
+  background-color: #8273978c;
+  transition: all 0.7s;
+}
+
+.showNav div {
+  right: 0;
+  visibility: visible;
+}
+
+.header > .navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar div a {
+  display: block;
+  padding: 0.5rem 3.5rem 0.5rem 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.header > button {
+  padding-right: 3.5rem;
+}
+
+.burger {
+  display: block;
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+}
+
+.burger:hover {
+  cursor: pointer;
+}
+
+.burgerBar,
+.burgerBar::before,
+.burgerBar::after {
+  display: block;
+  width: 35px;
+  height: 4px;
+  position: relative;
+  border-radius: 3px;
+  background: white;
+  transition: all 0.5s ease-in-out;
+}
+.burgerBar::before,
+.burgerBar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burgerBar::before {
+  transform: translateY(-12px);
+}
+.burgerBar::after {
+  transform: translateY(12px);
+}
+.showNav .burgerBar {
+  width: 0;
+  background: transparent;
+}
+.showNav .burgerBar::before {
+  transform: rotate(45deg);
+}
+.showNav .burgerBar::after {
+  transform: rotate(-45deg);
+}
