@@ -1,6 +1,7 @@
 :root {
   --purple-color: #827397;
   --grey-color: #5f5b5b;
+  --grey-light-color: #dfdede;
   --font-text: "Poppins", sans-serif;
 }
 
@@ -16,7 +17,7 @@
 }
 
 main {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 html,
