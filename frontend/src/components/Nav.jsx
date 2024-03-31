@@ -19,7 +19,9 @@ function Nav() {
         />
         <div>
           <Link to="/">Home</Link>
+          <Link to="/register">Sign in</Link>
         </div>
+
         <button
           type="button"
           aria-label="Save"
