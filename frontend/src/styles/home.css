@@ -68,3 +68,13 @@
   font-weight: 300;
   color: var(--purple-color);
 }
+
+/* Card animals */
+
+.animal_card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem 3rem;
+  margin: 2rem 0.5rem;
+}

@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/home.css";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from "axios";
+import AnimalsList from "../components/AnimalsList";
 
 function Home() {
   const URL = import.meta.env.VITE_BACKEND_URL;
+  const [toGetAnimals, setToGetAnimals] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${URL}/api/animals`)
+      .then((response) => {
+        setToGetAnimals(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <div className="homepage_container">
       <div className="searchBar_container">Search Bar</div>
@@ -45,7 +61,11 @@ function Home() {
           <h4>See all</h4>
         </section>
       </div>
-      <section className="animal_card_container">Animal</section>
+      <section className="animal_card_container">
+        {toGetAnimals.map((animal) => (
+          <AnimalsList key={animal.id} animal={animal} />
+        ))}
+      </section>
     </div>
   );
 }

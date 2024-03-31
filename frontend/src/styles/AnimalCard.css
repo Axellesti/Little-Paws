@@ -1,0 +1,43 @@
+.animals_container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.animals_container > img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 8px 8px 25px 8px;
+}
+
+.animals_card {
+  width: 50%;
+}
+
+.text_card {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_card > h3 {
+  font-weight: 500;
+  color: var(--grey-color);
+  padding: 1em 0.8em 0.5em 0.8em;
+}
+
+.location_card > img {
+  padding-right: 0.5em;
+}
+
+.location_card {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0em 0.8em 0.8em;
+}
+
+.location_card > p {
+  color: var(--grey-color);
+}
