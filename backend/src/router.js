@@ -24,7 +24,12 @@ router.delete("/animals/:id/", animalControllers.destroy);
 router.get("/users", userControllers.browse);
 router.get("/users/:id/", userControllers.read);
 router.post("/users", authMiddlewares.hashPassword, userControllers.add);
-router.put("/users/:id/", userControllers.update);
+router.put("/users/:id/", authMiddlewares.hashPassword, userControllers.update);
+router.put(
+  "/profile",
+  authMiddlewares.verifyUserToken,
+  userControllers.updateProfile
+);
 router.delete("/users/:id/", userControllers.destroy);
 
 // Route to login

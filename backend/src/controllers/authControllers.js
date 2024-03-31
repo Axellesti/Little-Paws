@@ -20,6 +20,7 @@ const login = async (req, res, next) => {
         {
           sub: user[0].id,
           email: user[0].email,
+          username: user[0].username,
         },
         process.env.APP_SECRET,
         {
@@ -35,7 +36,7 @@ const login = async (req, res, next) => {
           msg: "Connexion réussie",
           id: user[0].id,
           email: user[0].email,
-          nickname: user[0].username,
+          username: user[0].username,
           token,
         });
     } else {

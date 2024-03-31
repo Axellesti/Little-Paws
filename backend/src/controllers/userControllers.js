@@ -12,8 +12,8 @@ const browse = async (req, res, next) => {
 const read = async (req, res, next) => {
   const { id } = req.params;
   try {
-    const animal = await tables.animal.read(id);
-    res.json(animal);
+    const user = await tables.user.read(id);
+    res.json(user);
   } catch (err) {
     next(err);
   }
@@ -22,8 +22,8 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   const userInfos = {
     email: req.body.email,
-    username: req.body.username,
     hashedPassword: req.body.hashedPassword,
+    username: req.body.username,
   };
 
   try {
@@ -55,6 +55,24 @@ const update = async (req, res, next) => {
   }
 };
 
+const updateProfile = async (req, res, next) => {
+  const userInfos = {
+    username: req.body.username,
+    id: req.body.idUser,
+  };
+
+  try {
+    const result = await tables.user.updateUsername(userInfos);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "User introuvable" });
+    } else {
+      res.json({ msg: "User modifié avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const destroy = async (req, res, next) => {
   try {
     const result = await tables.user.destroy(req.params.id);
@@ -68,4 +86,4 @@ const destroy = async (req, res, next) => {
   }
 };
 
-module.exports = { browse, read, add, update, destroy };
+module.exports = { browse, read, add, update, updateProfile, destroy };
