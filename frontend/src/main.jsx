@@ -7,6 +7,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import MyProfile from "./pages/MyProfile";
 import { UserProvider } from "./services/Context";
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <MyProfile />,
       },
     ],
   },

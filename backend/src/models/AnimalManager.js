@@ -20,7 +20,7 @@ class AnimalManager extends AbstractManager {
 
   async create(animal) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (category, name, race, age, type, place, id_picture) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (category, name, race, age, type, place, picture) VALUES (?, ?, ?, ?, ?, ?, ?)`,
       [
         animal.category,
         animal.name,
@@ -36,7 +36,7 @@ class AnimalManager extends AbstractManager {
 
   async update(animal) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET category=?, name=?, race=?, age=?, type=?, place=?, id_picture=? WHERE id=?`,
+      `UPDATE ${this.table} SET category=?, name=?, race=?, age=?, type=?, place=?, picture=? WHERE id=?`,
       [
         animal.category,
         animal.name,

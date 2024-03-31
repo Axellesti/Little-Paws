@@ -31,7 +31,7 @@ function Footer() {
           </button>
         </Link>
         <span className="spanLine"> </span>
-        <Link to="/">
+        <Link to="/profile">
           <button className="bottom_icon_4" type="button">
             <img
               src={`${URL}/public/assets/images/person_grey.svg`}

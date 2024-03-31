@@ -19,12 +19,12 @@ create table animal (
 );
 
 -- Création des users
-INSERT INTO user (email, username, hashed_password) VALUES 
-('axo@gmail.com', "Axoloto", '$argon2id$v=19$m=19456,t=2,p=1$upauSebysKdYF+oXYeoDYA$CFmdc98oeuc7V8gNarUaiFzLV1vsziRZTAD47OUFPo0'),
-('gaia@gmail.com', "Gaiou", "$argon2id$v=19$m=19456,t=2,p=1$yPewnjVIIccdCEzomFqo2A$N/IoXPe9jMo8GMtW7cnH2s4df7bvOACNHjYnK2cnMdE"),
-('yoko@gmail.com', "Yokoko", "$argon2id$v=19$m=19456,t=2,p=1$tLLC9UP1QkGrT3+fJxn4bw$jPIsosfM8wnhaimQ1noqQENGNjaH7z851YnRJCjkH+k"),
-('plume@gmail.com', "Plumeau", "$argon2id$v=19$m=19456,t=2,p=1$V1Gj8ZhMzlM3ziamhsfG5Q$Q4107oOd12pAQIp2x1icLswhLGj2kRQ+insh9yOda0Y"),
-('buck@gmail.com', "Bucky", "$argon2id$v=19$m=19456,t=2,p=1$XQSECxfZ5B3tRjfDDiEa8Q$XUncXh1F70YzwxZe4p6ju4oMd48jQCqSeT4EFSPxkoM");
+INSERT INTO user (email, hashed_password, username) VALUES 
+('axo@gmail.com', '$argon2id$v=19$m=19456,t=2,p=1$upauSebysKdYF+oXYeoDYA$CFmdc98oeuc7V8gNarUaiFzLV1vsziRZTAD47OUFPo0', "Axoloto"),
+('gaia@gmail.com', "$argon2id$v=19$m=19456,t=2,p=1$yPewnjVIIccdCEzomFqo2A$N/IoXPe9jMo8GMtW7cnH2s4df7bvOACNHjYnK2cnMdE", "Gaiou"),
+('yoko@gmail.com', "$argon2id$v=19$m=19456,t=2,p=1$tLLC9UP1QkGrT3+fJxn4bw$jPIsosfM8wnhaimQ1noqQENGNjaH7z851YnRJCjkH+k", "Yokoko"),
+('plume@gmail.com', "$argon2id$v=19$m=19456,t=2,p=1$V1Gj8ZhMzlM3ziamhsfG5Q$Q4107oOd12pAQIp2x1icLswhLGj2kRQ+insh9yOda0Y", "Plumeau"),
+('buck@gmail.com', "$argon2id$v=19$m=19456,t=2,p=1$XQSECxfZ5B3tRjfDDiEa8Q$XUncXh1F70YzwxZe4p6ju4oMd48jQCqSeT4EFSPxkoM", "Bucky");
 
 -- Création des animaux
 INSERT INTO animal (category, name, race, age, type, place, picture) VALUES
