@@ -10,18 +10,34 @@ class UserManager extends AbstractManager {
     return rows;
   }
 
+  async read(id) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ?`,
+      [id]
+    );
+    return rows;
+  }
+
   async create(user) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (email, username, password) VALUES (?, ?, ?)`,
-      [user.email, user.username, user.password]
+      `INSERT INTO ${this.table} (email, username, hashed_password) VALUES (?, ?, ?)`,
+      [user.email, user.username, user.hashedPassword]
+    );
+    return rows;
+  }
+
+  async readByEmailWithPassword(email) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
     );
     return rows;
   }
 
   async update(user) {
     const [rows] = await this.database.query(
-      `UPDATE ${this.table} SET email=?, password=?, username=? WHERE id=?`,
-      [user.email, user.password, user.username, user.id]
+      `UPDATE ${this.table} SET email=?, hashed_password=?, username=? WHERE id=?`,
+      [user.email, user.hashedPassword, user.username, user.id]
     );
     return rows;
   }
