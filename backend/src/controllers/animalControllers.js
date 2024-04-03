@@ -20,6 +20,8 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
+  console.info("Data received from frontend:", req.body);
+
   const animalInfos = {
     category: req.body.category,
     name: req.body.name,
@@ -28,6 +30,7 @@ const add = async (req, res, next) => {
     type: req.body.type,
     place: req.body.place,
     picture: req.body.picture,
+    user_id: req.userId,
   };
 
   try {

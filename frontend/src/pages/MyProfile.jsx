@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Context from "../services/Context";
+import AddAPet from "../components/AddAPet";
 
 import "../styles/MyProfile.css";
 
@@ -15,6 +16,13 @@ function MyProfile() {
     email: user.email,
     idUser: user.id,
   });
+
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [userPet, setUserPet] = useState([]);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   const handleChangeUsername = (event) => {
     setUserInfos({ ...userInfos, username: event.target.value });
@@ -55,6 +63,20 @@ function MyProfile() {
     notify();
   };
 
+  const fetchUserPet = () => {
+    axios
+      .get(`${URL}/api/animals/${user.id}`, { withCredentials: true })
+      .then((response) => {
+        console.info("Voici mon animal:", response.data);
+        setUserPet(response.data);
+      })
+      .catch((error) => console.error("Error, can't catch my animal", error));
+  };
+
+  useEffect(() => {
+    fetchUserPet();
+  }, []);
+
   return (
     <div className="profile_container">
       <h1>My profile</h1>
@@ -64,9 +86,28 @@ function MyProfile() {
         <hr />
         <div className="your_pet_container">
           <h1>Your pet</h1>
-          <section>
-            <p> Add a pet ?</p>
-            <button type="button">+</button>
+          {userPet.map((animal) => (
+            <div className="fetch_details" key={animal.id}>
+              <img src={animal.picture} alt={animal.name} />
+              <div className="details_animals">
+                <h3>Name:</h3>
+                <p>{animal.name}</p>
+                <h3>Race:</h3>
+                <p>{animal.race}</p>
+                <h3>Age:</h3>
+                <p>{animal.age} years old</p>
+              </div>
+            </div>
+          ))}
+          <section className={`dropdown ${showDropdown ? "active" : ""}`}>
+            <button type="button" className="bloc_top" onClick={toggleDropdown}>
+              <span>Add a pet ?</span>
+              <img
+                src={`${URL}/public/assets/images/icon_plus.png`}
+                alt="Add a pet"
+              />
+            </button>
+            <AddAPet />
           </section>
         </div>
         <hr />

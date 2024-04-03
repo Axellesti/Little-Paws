@@ -16,7 +16,7 @@ const authMiddlewares = require("./services/auth");
 // Roads to animals
 router.get("/animals", animalControllers.browse);
 router.get("/animals/:id/", animalControllers.read);
-router.post("/animals", animalControllers.add);
+router.post("/animals", authMiddlewares.verifyUserToken, animalControllers.add);
 router.put("/animals/:id/", animalControllers.update);
 router.delete("/animals/:id/", animalControllers.destroy);
 
