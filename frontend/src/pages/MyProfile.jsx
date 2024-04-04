@@ -65,7 +65,7 @@ function MyProfile() {
 
   const fetchUserPet = () => {
     axios
-      .get(`${URL}/api/animals/${user.id}`, { withCredentials: true })
+      .get(`${URL}/api/users/${user.id}/animals`, { withCredentials: true })
       .then((response) => {
         console.info("Voici mon animal:", response.data);
         setUserPet(response.data);

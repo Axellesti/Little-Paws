@@ -43,7 +43,7 @@ create table animal (
 -- Création des animaux
 INSERT INTO animal (category, name, race, age, type, place, picture, user_id) VALUES
 ('Chien', 'Yoko', 'Shiba Inu', 4, 'Femelle', 'Lille', 'https://i.ibb.co/8Kg9Z9n/yoko.jpg', 10),
-('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux', 'https://i.ibb.co/8B8KL1w/gaia.jpg', 2),
+('Chien', 'Gaïa', 'Berger Australien', 2, 'Femelle', 'Bordeaux', 'https://i.ibb.co/8B8KL1w/gaia.jpg', 11),
 ('Chat', 'Nenette', 'Chat de gouttiere', 8, 'Femelle', 'Strasbourg', 'https://i.ibb.co/4mp9STq/nenette.jpg', 3),
 ('Chat', 'Boulette', 'Chat de gouttier', 7, 'Femelle', 'Lyon', 'https://i.ibb.co/CM12f49/boulette2.jpg', 4),
 ('Chat', 'Diabolo', 'Siamois', 6, 'Mâle', 'Bordeaux', 'https://i.ibb.co/CbkX6bZ/diabolo.jpg', 5),
@@ -55,7 +55,7 @@ INSERT INTO animal (category, name, race, age, type, place, picture, user_id) VA
 ('Chat', 'Oscar', 'American Shorthair', 4, 'Mâle', 'Lille', 'https://i.ibb.co/3sjPm6B/Oscar.jpg', 14),
 ('Chat', 'Nala', 'Chartreux', 5, 'Femelle', 'Paris', 'https://i.ibb.co/yWRjR2V/Nala.jpg', 13),
 ('Chien', 'Luna', 'Berger Allemand', 5, 'Femelle', 'Bordeaux', 'https://i.ibb.co/QrhhbLY/Luna.jpg', 12),
-('Chien', 'Coco', 'Bulldog Français', 4, 'Mâle', 'Montpellier', 'https://i.ibb.co/zFcgZvx/Coco.jpg', 11),
+('Chien', 'Coco', 'Bulldog Français', 4, 'Mâle', 'Montpellier', 'https://i.ibb.co/zFcgZvx/Coco.jpg', 14),
 ('Chien', 'Daisy', 'Caniche', 2, 'Femelle', 'Clermont-Ferrand', 'https://i.ibb.co/j838Prf/Daisy.jpg', 1),
 ('Chien', 'Nika', 'Beagle', 6, 'Femelle', 'Toulon', 'https://i.ibb.co/ZhtdZ5N/Nika.jpg', 9),
 ('Chien', 'Shadow', 'Akita Inu', 8, 'Mâle', 'Paris', 'https://i.ibb.co/89SYzRf/Shadow.jpg', 8);

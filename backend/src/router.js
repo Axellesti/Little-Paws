@@ -20,6 +20,8 @@ router.post("/animals", authMiddlewares.verifyUserToken, animalControllers.add);
 router.put("/animals/:id/", animalControllers.update);
 router.delete("/animals/:id/", animalControllers.destroy);
 
+router.get("/users/:id/animals", animalControllers.getUserAnimals);
+
 // Roads to users
 router.get("/users", userControllers.browse);
 router.get("/users/:id/", userControllers.read);
