@@ -58,7 +58,7 @@ const update = async (req, res, next) => {
 const updateProfile = async (req, res, next) => {
   const userInfos = {
     username: req.body.username,
-    id: req.body.idUser,
+    id: req.userId,
   };
 
   try {

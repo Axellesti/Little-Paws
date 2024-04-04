@@ -34,22 +34,27 @@ const verifyToken = async (req, res, next) => {
 
 const verifyUserToken = (req, res, next) => {
   const infos = {
-    idUser: req.body.user_id,
+    idUser: req.body.idUser,
   };
 
   console.info("Les infos : ", infos);
 
-  req.userId = infos.idUser;
+  req.userId = parseInt(infos.idUser, 10);
+
+  console.info("REQ USER", req.userId);
 
   const token = req.cookies.auth;
 
   try {
     const decodedToken = jwt.verify(token, process.env.APP_SECRET);
-    if (decodedToken.sub === infos.idUser) {
+    console.info("DECODED TOKEN", decodedToken.sub);
+    console.info("TYPAGE ID DU TOKEN", typeof decodedToken.sub);
+    console.info("TYPAGE DU idUSER du REQ", typeof req.userId);
+    if (decodedToken.sub === req.userId) {
       console.info("Ok utilisateur vérifié");
       next();
     } else {
-      console.info("erreur user non valide");
+      console.info("DEPUIS AUTH : erreur user non valide");
     }
   } catch (error) {
     console.error("Token verification failed:", error);

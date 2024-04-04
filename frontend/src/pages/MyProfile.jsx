@@ -29,15 +29,8 @@ function MyProfile() {
   };
 
   const notify = () =>
-    toast.success("Update completed successfully !", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
+    toast("Hey, your have a new username !", {
+      className: "toast-message",
     });
 
   const fetchProfile = () => {
@@ -147,20 +140,7 @@ function MyProfile() {
           />
         </div>
       </div>
-      <ToastContainer
-        className={toast}
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-        transition:Bounce
-      />
+      <ToastContainer />
     </div>
   );
 }
