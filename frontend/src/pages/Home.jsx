@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/home.css";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from "axios";
@@ -23,11 +24,13 @@ function Home() {
     <div className="homepage_container">
       <div className="searchBar_container">Search Bar</div>
       <div className="home_banner_container">
-        <img
-          src={`${URL}/public/assets/images/Bandeau.svg`}
-          alt="Home"
-          className="banner"
-        />
+        <Link to="/login">
+          <img
+            src={`${URL}/public/assets/images/Bandeau.svg`}
+            alt="Home"
+            className="banner"
+          />
+        </Link>
       </div>
       <div className="filter_category_container">
         <section className="text_filter">

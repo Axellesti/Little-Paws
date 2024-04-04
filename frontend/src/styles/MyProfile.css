@@ -1,3 +1,9 @@
+.toast-message {
+  background-color: white;
+  color: var(--purple-color);
+  padding: 30px 20px;
+}
+
 .profile_container {
   display: flex;
   flex-direction: column;
