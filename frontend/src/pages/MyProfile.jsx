@@ -67,7 +67,6 @@ function MyProfile() {
     axios
       .get(`${URL}/api/users/${user.id}/animals`, { withCredentials: true })
       .then((response) => {
-        console.info("Voici mon animal:", response.data);
         setUserPet(response.data);
       })
       .catch((error) => console.error("Error, can't catch my animal", error));

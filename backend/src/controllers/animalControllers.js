@@ -21,11 +21,9 @@ const read = async (req, res, next) => {
 
 const getUserAnimals = async (req, res, next) => {
   const { id } = req.params;
-  console.info("ID PARAMS", id);
   try {
     const userAnimals = await tables.animal.getUserAnimals(id);
     res.json(userAnimals);
-    console.info("je reçois ici mes animaux:", userAnimals);
   } catch (err) {
     next(err);
   }

@@ -32,6 +32,7 @@ function AddAPet() {
       })
       .then((response) => {
         console.info(response);
+        window.location.reload();
       })
       .catch((error) => console.error(error));
   };
