@@ -46,4 +46,12 @@ const login = async (req, res, next) => {
     next(error);
   }
 };
-module.exports = { login };
+
+const disconnected = async (req, res, next) => {
+  try {
+    res.clearCookie("auth").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+module.exports = { login, disconnected };

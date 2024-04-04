@@ -43,8 +43,6 @@ const verifyUserToken = (req, res, next) => {
 
   const token = req.cookies.auth;
 
-  console.info("Token received:", token);
-
   try {
     const decodedToken = jwt.verify(token, process.env.APP_SECRET);
     if (decodedToken.sub === infos.idUser) {

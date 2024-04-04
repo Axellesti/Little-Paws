@@ -37,6 +37,7 @@ router.delete("/users/:id/", userControllers.destroy);
 
 // Route to login
 router.post("/login", authControllers.login);
+router.delete("/logout", authControllers.disconnected);
 
 /* ************************************************************************* */
 

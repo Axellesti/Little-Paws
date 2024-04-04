@@ -24,7 +24,7 @@
   height: 100%;
   padding: 3.2rem 1.5rem 2rem 1.5rem;
   visibility: hidden;
-  background-color: #8273978c;
+  background-color: #827397d8;
   transition: all 0.7s;
 }
 
@@ -38,7 +38,7 @@
   color: white;
 }
 
-.navbar div a {
+.navbar > .links_container > a {
   display: block;
   padding: 0.5rem 3.5rem 0.5rem 0.5rem;
   margin-top: 0.5rem;
@@ -91,4 +91,17 @@
 }
 .showNav .burgerBar::after {
   transform: rotate(-45deg);
+}
+
+.links_container > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 8em;
+}
+
+.links_container > ul > li > a > img {
+  width: 1.5em;
+  height: 1.5em;
 }
