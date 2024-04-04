@@ -65,6 +65,12 @@
   padding-bottom: 0.5em;
 }
 
+.details_animals > button > img {
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+
 .fetch_details > img {
   width: 8rem;
   height: 8rem;

@@ -76,6 +76,17 @@ function MyProfile() {
     fetchUserPet();
   }, []);
 
+  const deleteUserPet = (animalId) => {
+    axios
+      .delete(`${URL}/api/animals/${animalId}`)
+      .then((response) => {
+        console.info(response);
+        setUserPet(userPet.filter((animal) => animal.id !== animalId));
+        window.location.reload();
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="profile_container">
       <h1>My profile</h1>
@@ -95,6 +106,12 @@ function MyProfile() {
                 <p>{animal.race}</p>
                 <h3>Age:</h3>
                 <p>{animal.age} years old</p>
+                <button type="button" onClick={() => deleteUserPet(animal.id)}>
+                  <img
+                    src={`${URL}/public/assets/images/icon_trash.png`}
+                    alt="delete my animal"
+                  />
+                </button>
               </div>
             </div>
           ))}
