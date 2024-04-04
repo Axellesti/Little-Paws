@@ -18,9 +18,17 @@ class AnimalManager extends AbstractManager {
     return rows;
   }
 
+  async getUserAnimals(userId) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE user_id = ?`,
+      [userId]
+    );
+    return rows;
+  }
+
   async create(animal) {
     const [rows] = await this.database.query(
-      `INSERT INTO ${this.table} (category, name, race, age, type, place, picture) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (category, name, race, age, type, place, picture, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         animal.category,
         animal.name,
@@ -29,6 +37,7 @@ class AnimalManager extends AbstractManager {
         animal.type,
         animal.place,
         animal.picture,
+        animal.user_id,
       ]
     );
     return rows;

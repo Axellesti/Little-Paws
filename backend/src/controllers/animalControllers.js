@@ -19,7 +19,21 @@ const read = async (req, res, next) => {
   }
 };
 
+const getUserAnimals = async (req, res, next) => {
+  const { id } = req.params;
+  console.info("ID PARAMS", id);
+  try {
+    const userAnimals = await tables.animal.getUserAnimals(id);
+    res.json(userAnimals);
+    console.info("je reçois ici mes animaux:", userAnimals);
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add = async (req, res, next) => {
+  console.info("Data received from frontend:", req.body);
+
   const animalInfos = {
     category: req.body.category,
     name: req.body.name,
@@ -28,6 +42,7 @@ const add = async (req, res, next) => {
     type: req.body.type,
     place: req.body.place,
     picture: req.body.picture,
+    user_id: req.userId,
   };
 
   try {
@@ -84,4 +99,5 @@ module.exports = {
   add,
   update,
   destroy,
+  getUserAnimals,
 };
