@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div className="homepage_container">
-      <div className="searchBar_container">Search Bar</div>
+      <div className="searchBar_container"> </div>
       <div className="home_banner_container">
         <Link to="/login">
           <img
