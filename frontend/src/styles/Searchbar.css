@@ -1,0 +1,29 @@
+.Input_container > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Input_container > form > input {
+  color: white;
+  background-color: var(--background-color-lightblue);
+  border: none;
+  height: 2rem;
+  width: 12rem;
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.Search_Btn {
+  align-items: center;
+  background-color: var(--background-color-lightblue);
+  width: 3rem;
+  height: 2rem;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.Search_Btn > img {
+  width: 1.3rem;
+  height: 1.3rem;
+}

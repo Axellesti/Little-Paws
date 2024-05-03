@@ -4,6 +4,7 @@ import "../styles/home.css";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import axios from "axios";
 import AnimalsList from "../components/AnimalsList";
+import SearchBar from "../components/SearchBar";
 
 function Home() {
   const URL = import.meta.env.VITE_BACKEND_URL;
@@ -22,7 +23,10 @@ function Home() {
 
   return (
     <div className="homepage_container">
-      <div className="searchBar_container"> </div>
+      <div className="searchBar_container">
+        {" "}
+        <SearchBar />{" "}
+      </div>
       <div className="home_banner_container">
         <Link to="/login">
           <img
